@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -9,14 +9,9 @@ export default function Home() {
           <code className="font-mono font-bold">Wegovy</code>  &nbsp; in stock
         </p>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <div className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0">
             Made by a pharmacist, for you.
-          </a>
+          </div>
         </div>
       </div>
 
@@ -28,11 +23,9 @@ export default function Home() {
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <Link
+          href="/map"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
             Maps{" "}
@@ -43,13 +36,11 @@ export default function Home() {
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
             Find information about if Wegovy is in stock at a pharmacy near you.
           </p>
-        </a>
+        </Link>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+        <Link
+          href="/faq"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
             FAQ{" "}
@@ -60,7 +51,7 @@ export default function Home() {
           <p className="m-0 max-w-[30ch] text-sm opacity-50">
             What is Wegovy? How do you use this website? The answer to all of your questions!
           </p>
-        </a>
+        </Link>
 
         <a
           href="https://www.wegovy.com/coverage-and-savings/save-on-wegovy.html"
@@ -79,11 +70,9 @@ export default function Home() {
           </p>
         </a>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <Link
+          href="/profile"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           <h2 className="mb-3 text-2xl font-semibold">
             Profile{" "}
@@ -94,7 +83,7 @@ export default function Home() {
           <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
             View your profile and your favorited pharmacies.
           </p>
-        </a>
+        </Link>
       </div>
     </main>
   );
