@@ -1,12 +1,12 @@
 // import Link from 'next/link';
-import NavLinks from '@/ui/nav-links';
+import NavLinks from '@/app/ui/navigation/nav-links';
 // import { signOut } from '@/auth';
 
 export default function NavBar() {
   return (
     <div>
-      <div className="mx-auto ">
-        <div className="relative flex items-center justify-center">
+      <div className="bg-gray-50">
+        <div className="relative flex items-center justify-center ">
 
             <NavLinks />
 
