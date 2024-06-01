@@ -1,9 +1,8 @@
-import NavBar from "@/app/ui/navigation/navbar"
+import { Layout } from "../layout"
 
 export default function Page() {
     return (
-        <div>
-            <NavBar />
+        <Layout>
             <div className="bg-gradient-to-r from-cyan-500 to-blue-500/50 flex min-h-screen flex-col items-center justify-between p-24">
                 <div className="flex flex-col items-center justify-center flex-grow w-full">
                     <h1 className="text-center mb-12">
@@ -53,7 +52,7 @@ export default function Page() {
                     </div>
                 </div>
             </div>
-        </div>
+        </Layout>
     )
 }
 

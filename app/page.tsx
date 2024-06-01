@@ -3,7 +3,7 @@ import { useSession } from 'next-auth/react';
 import Link from "next/link";
 
 export default function Home() {
-  const { data: sessionData } = useSession;
+  // const { data: sessionData } = useSession;
   // TODO: fix this later
 
   return (
@@ -75,10 +75,10 @@ export default function Home() {
           </p>
         </a>
 
-        {sessionData
+        {/* {sessionData
         ? <LoggedInComponent />
         : <LoggedOutComponent />
-        }
+        } */}
       </div>
     </main>
   );
