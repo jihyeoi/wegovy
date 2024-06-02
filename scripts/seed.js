@@ -67,7 +67,7 @@ async function seedPharmacies(client) {
     const insertedPharmacies = await Promise.all(
       pharmacies.map(async (pharmacy) => {
         return client.sql`
-        INSERT INTO pharmacy (id, name, address, zipcode)
+        INSERT INTO pharmacies (id, name, address, zipcode)
         VALUES (${pharmacy.id}, ${pharmacy.name}, ${pharmacy.address}, ${pharmacy.zipcode})
         ON CONFLICT (id) DO NOTHING;
         `;
