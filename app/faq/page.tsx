@@ -6,7 +6,7 @@ export default function Page() {
             <div className="bg-gradient-to-r from-cyan-500 to-blue-500/50 flex min-h-screen flex-col items-center justify-between p-24">
                 <div className="flex flex-col items-center justify-center flex-grow w-full">
                     <h1 className="text-center mb-12">
-                        <div className="text-6xl font-bold text-black">FAQ's</div>
+                        <div className="text-6xl font-bold text-black">FAQs</div>
                     </h1>
                     <div className="bg-white/80 p-8 rounded-lg shadow-lg w-full max-w-4xl">
                         <div className="mb-6">
@@ -14,7 +14,7 @@ export default function Page() {
                             <p className="text-lg text-black">It is a medication approved by the FDA for chronic weight management in adults with obesity or overweight with at least one weight-related condition, such as hypertension, type 2 diabetes, or high cholesterol. </p>
                         </div>
                         <div className="mb-6">
-                            <h2 className="text-2xl font-bold text-black">What's the difference between Wegovy and Ozempic? </h2>
+                            <h2 className="text-2xl font-bold text-black">What is the difference between Wegovy and Ozempic? </h2>
                             <p className="text-lg text-black">Wegovy and Ozempic are both medications that contain semaglutide, but they are approved for different uses. Ozempic is approved for the treatment for type 2 diabetes. </p>
                         </div>
                         <div className="mb-6">
