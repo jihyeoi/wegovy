@@ -16,38 +16,38 @@ export type User = {
 export type Pharmacy = {
   id: string;
   name: string;
+  address: string;
   zip_code: string;
   reports: Report[];
   notes: Note[];
   userPharmacies: User_Pharmacy[];
 };
 
-export type Report = {
-  id: string;
-  title: string;
-  content: string;
-  userId: number;
-  user: User;
-  pharmacyId: number;
-  pharmacy: Pharmacy;
-}
+export type NoteBody = "This pharmacy does not know when they'll get Wegovy." |
+                       "This pharmacy has other doses of Wegovy, just not the one I was looking for." |
+                       "This pharmacy does not have Wegovy now but has been getting them in recently." |
+                       "This pharmacy had the dose of Wegovy I needed.";
 
 export type Note = {
   id: string;
-  subject: string;
-  body: string;
-  userId: number;
-  user: User;
+  body: NoteBody;
+  username: string;
   pharmacyId: number;
-  pharmacy: Pharmacy;
+}
+
+export type Report = {
+  id: string;
+  hasWegovy: boolean;
+  reportTime: Date;
+  dosingInfo?: string;
+  username: string;
+  pharmacyId: number;
 }
 
 export type User_Pharmacy = {
   id: string;
   userId: number;
-  user: User;
   pharmacyId: number;
-  pharmacy: Pharmacy;
 }
 
 
