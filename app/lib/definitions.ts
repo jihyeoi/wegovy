@@ -2,6 +2,7 @@
 // It describes the shape of the data, and what data type each property should accept.
 // For simplicity of teaching, we're manually defining these types.
 // However, these types are generated automatically if you're using an ORM such as Prisma.
+
 export type User = {
   username: string;
   name: string;
@@ -32,7 +33,7 @@ export type Note = {
   id: string;
   body: NoteBody;
   username: string;
-  pharmacyId: number;
+  pharmacyId: string;
 }
 
 export type Report = {
@@ -41,13 +42,13 @@ export type Report = {
   reportTime: Date;
   dosingInfo?: string;
   username: string;
-  pharmacyId: number;
+  pharmacyId: string;
 }
 
 export type User_Pharmacy = {
   id: string;
-  userId: number;
-  pharmacyId: number;
+  username: string;
+  pharmacyId: string;
 }
 
 
