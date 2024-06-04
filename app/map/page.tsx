@@ -1,4 +1,4 @@
-import { Layout } from "../layout";
+import Layout from "../pagelayout";
 
 export default function Page() {
     return (
