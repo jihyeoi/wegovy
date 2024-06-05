@@ -4,8 +4,8 @@ const users = [
     username: 'john_doe',
     name: 'John Doe',
     email: 'john.doe@example.com',
-    password: 'securepassword123',
-    zip_code: '10001',
+    zipcode: '10001',
+    password: 'password',
     reports: [],  // Will be populated later
     notes: [],    // Will be populated later
     userPharmacies: []  // Will be populated later
@@ -14,8 +14,8 @@ const users = [
     username: 'jane_smith',
     name: 'Jane Smith',
     email: 'jane.smith@example.com',
-    password: 'anothersecure123',
-    zip_code: '90210',
+    zipcode: '90210',
+    password: 'password',
     reports: [],  // Will be populated later
     notes: [],    // Will be populated later
     userPharmacies: []  // Will be populated later
@@ -25,17 +25,19 @@ const users = [
 // Placeholder data for Pharmacies
 const pharmacies = [
   {
-    id: 'ph1',
+    id: '13D07535-C59E-4157-A011-F8D2EF4E0CBB',
     name: 'Good Health Pharmacy',
-    zip_code: '90210',
+    address: '1240 health st',
+    zipcode: '90210',
     reports: [],  // Will be populated later
     notes: [],    // Will be populated later
     userPharmacies: []  // Will be populated later
   },
   {
-    id: 'ph2',
+    id: 'CC27C14A-0ACF-4F4A-A6C9-D45682C144B9',
     name: 'Community Pharmacy',
-    zip_code: '90210',
+    address: '4430 community st',
+    zipcode: '90210',
     reports: [],  // Will be populated later
     notes: [],    // Will be populated later
     userPharmacies: []  // Will be populated later
@@ -45,44 +47,35 @@ const pharmacies = [
 // Placeholder data for Reports
 const reports = [
   {
-    id: 'r1',
-    title: 'Annual Sales Report',
-    content: 'Detailed analysis of annual sales.',
-    userId: users[0].id,
-    user: users[0],
+    id: '126eed9c-c90c-4ef6-a4a8-fcf7408d3c66',
+    has_wegovy: true,
+    report_time: '2024-01-23',
+    username: users[0].username,
     pharmacyId: pharmacies[0].id,
-    pharmacy: pharmacies[0]
   }
 ];
 
 // Placeholder data for Notes
 const notes = [
   {
-    id: 'n1',
-    subject: 'Meeting Notes',
-    body: 'Notes from the strategy meeting.',
-    userId: users[1].id,
-    user: users[1],
+    id: 'd6e15727-9fe1-4961-8c5b-ea44a9bd81aa',
+    body: 'This pharmacy had the dose of Wegovy I needed.',
+    username: users[1].username,
     pharmacyId: pharmacies[1].id,
-    pharmacy: pharmacies[1]
   }
 ];
 
 // Placeholder data for User_Pharmacy (many-to-many relationships)
 const userPharmacies = [
   {
-    id: 'up1',
-    userId: users[0].id,
-    user: users[0],
+    id: '76d65c26-f784-44a2-ac19-586678f7c2f2',
+    username: users[0].username,
     pharmacyId: pharmacies[0].id,
-    pharmacy: pharmacies[0]
   },
   {
-    id: 'up2',
-    userId: users[1].id,
-    user: users[1],
+    id: '3958dc9e-787f-4377-85e9-fec4b6a6442a',
+    username: users[1].username,
     pharmacyId: pharmacies[1].id,
-    pharmacy: pharmacies[1]
   }
 ];
 
@@ -96,3 +89,12 @@ users[1].notes.push(notes[0]);
 users[1].userPharmacies.push(userPharmacies[1]);
 pharmacies[1].notes.push(notes[0]);
 pharmacies[1].userPharmacies.push(userPharmacies[1]);
+
+
+module.exports = {
+  users,
+  pharmacies,
+  notes,
+  reports,
+  userPharmacies
+};

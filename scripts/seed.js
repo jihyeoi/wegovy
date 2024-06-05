@@ -4,20 +4,19 @@ const {
   pharmacies,
   notes,
   reports,
-  user_pharmacies
+  userPharmacies
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
 async function seedUsers(client) {
   try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp`;
     // Create the "users" table if it doesn't exist
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS users (
         username VARCHAR(50) PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         email TEXT NOT NULL UNIQUE,
-        zipcode TEXT NOT NULL,
+        zipcode VARCHAR(5) NOT NULL,
         password TEXT NOT NULL
       );
     `;
@@ -50,14 +49,14 @@ async function seedUsers(client) {
 
 async function seedPharmacies(client) {
   try {
-    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp`;
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     // Create the "pharmacies" table if it doesn't exist
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS pharmacies (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         address TEXT NOT NULL,
-        zipcode TEXT NOT NULL,
+        zipcode VARCHAR(5) NOT NULL
       );
     `;
 
@@ -88,6 +87,7 @@ async function seedPharmacies(client) {
 
 async function seedNotes(client) {
   try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS notes (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -103,7 +103,7 @@ async function seedNotes(client) {
       notes.map(note => {
         return client.sql`
           INSERT INTO notes (id, body, username, pharmacyId)
-          VALUES (${note.id}, ${note.body}, ${note.user.username}, ${note.pharmacy.id})
+          VALUES (${note.id}, ${note.body}, ${note.username}, ${note.pharmacyId})
           ON CONFLICT (id) DO NOTHING;
         `;
       })
@@ -123,6 +123,7 @@ async function seedNotes(client) {
 
 async function seedReports(client) {
   try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS reports (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -160,6 +161,7 @@ async function seedReports(client) {
 
 async function seedUserPharmacies(client) {
   try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS user_pharmacies (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -171,7 +173,7 @@ async function seedUserPharmacies(client) {
     console.log(`Created "user_pharmacies" table`);
 
     const insertedUserPharmacies = await Promise.all(
-      user_pharmacies.map(up => {
+      userPharmacies.map(up => {
         return client.sql`
           INSERT INTO user_pharmacies (id, username, pharmacyId)
           VALUES (${up.id}, ${up.username}, ${up.pharmacyId})
