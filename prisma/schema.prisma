@@ -1,0 +1,66 @@
+// schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  username      String           @id
+  name          String
+  email         String           @unique
+  password      String
+  zipcode       String
+  reports       Report[]
+  notes         Note[]
+  userPharmacies User_Pharmacy[]
+}
+
+model Pharmacy {
+  id            String           @id
+  name          String
+  address       String
+  zipcode       String
+  reports       Report[]
+  notes         Note[]
+  userPharmacies User_Pharmacy[]
+}
+
+enum NoteBody {
+  UnknownWegovyAvailability
+  HasOtherDoses
+  RecentlyHadWegovy
+  HadNeededDose
+}
+
+model Note {
+  id           String   @id
+  body         NoteBody
+  user         User     @relation(fields: [username], references: [username])
+  username     String
+  pharmacy     Pharmacy @relation(fields: [pharmacyId], references: [id])
+  pharmacyId   String
+}
+
+model Report {
+  id           String   @id
+  hasWegovy    Boolean
+  reportTime   DateTime
+  dosingInfo   String?
+  user         User     @relation(fields: [username], references: [username])
+  username     String
+  pharmacy     Pharmacy @relation(fields: [pharmacyId], references: [id])
+  pharmacyId   String
+}
+
+model User_Pharmacy {
+  id           String   @id
+  user         User     @relation(fields: [username], references: [username])
+  username     String
+  pharmacy     Pharmacy @relation(fields: [pharmacyId], references: [id])
+  pharmacyId   String
+}
