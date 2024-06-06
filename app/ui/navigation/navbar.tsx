@@ -1,14 +1,16 @@
 // import Link from 'next/link';
+'use client';
+import React from 'react';
 import NavLinks from '@/app/ui/navigation/nav-links';
-// import { signOut } from '@/auth';
 
 export default function NavBar() {
+
   return (
     <div>
       <div className="bg-gray-50">
         <div className="relative flex items-center justify-center ">
 
-            <NavLinks />
+           <NavLinks />
 
         </div>
       </div>

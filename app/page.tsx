@@ -1,10 +1,7 @@
 
-import { useSession } from 'next-auth/react';
 import Link from "next/link";
 
 export default function Home() {
-  // const { data: sessionData } = useSession;
-  // TODO: fix this later
 
   return (
     <main className="bg-gradient-to-r from-cyan-500 to-blue-500 flex min-h-screen flex-col items-center justify-between p-24">
@@ -75,18 +72,6 @@ export default function Home() {
           </p>
         </a>
 
-        {/* {sessionData
-        ? <LoggedInComponent />
-        : <LoggedOutComponent />
-        } */}
-      </div>
-    </main>
-  );
-}
-
-function LoggedInComponent() {
-  return (
-    <>
         <Link
           href="/profile"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -101,28 +86,50 @@ function LoggedInComponent() {
             View your profile and your favorited pharmacies.
           </p>
         </Link>
-    </>
+      </div>
+    </main>
   );
 }
 
-function LoggedOutComponent() {
-  return (
-    <div>
-        <Link
-          href="/login"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Log In{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Log in to save a list of your favorite pharmacies, update wegovy status on pharmacies, and make notes.
-          </p>
-        </Link>
-    </div>
-  );
-}
+// function LoggedInComponent() {
+//   return (
+//     <>
+//         <Link
+//           href="/profile"
+//           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+//         >
+//           <h2 className="mb-3 text-2xl font-semibold">
+//             Profile{" "}
+//             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+//               -&gt;
+//             </span>
+//           </h2>
+//           <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
+//             View your profile and your favorited pharmacies.
+//           </p>
+//         </Link>
+//     </>
+//   );
+// }
+
+// function LoggedOutComponent() {
+//   return (
+//     <div>
+//         <Link
+//           href="/login"
+//           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+//         >
+//           <h2 className="mb-3 text-2xl font-semibold">
+//             Log In{" "}
+//             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+//               -&gt;
+//             </span>
+//           </h2>
+//           <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
+//             Log in to save a list of your favorite pharmacies, update wegovy status on pharmacies, and make notes.
+//           </p>
+//         </Link>
+//     </div>
+//   );
+// }
 
