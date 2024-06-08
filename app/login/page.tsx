@@ -1,10 +1,10 @@
-import LoginForm from "../ui/login-form";
-import Layout from "../pagelayout";
+// import LoginForm from "../ui/login-form";
+// import Layout from "../pagelayout";
 
-export default function Page() {
-    return (
-    <Layout>
-        <LoginForm />
-    </Layout>
-    ) ;
-}
+// export default function Page() {
+//     return (
+//     <Layout>
+//         <LoginForm />
+//     </Layout>
+//     ) ;
+// }

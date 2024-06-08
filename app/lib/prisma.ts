@@ -16,4 +16,7 @@ export default prisma;
 /**
  * Now, whenever you need access to your database
  * you can import the prisma instance into the file where it's needed.
+ *
+ * to get to Prisma Studio:
+ * npx prisma studio
  */

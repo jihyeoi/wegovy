@@ -4,7 +4,7 @@
 // import { useFormState, useFormStatus } from 'react-dom';
 // import { authenticate } from '@/app/lib/actions';
 
-// export default function LoginForm() {
+// export default function SignupForm() {
 //   const [errorMessage, dispatch] = useFormState(authenticate, undefined);
 
 //   return (
